@@ -6,15 +6,23 @@ public class Ship extends Vehicle {
 	private ArrayList<Vehicle> load = new ArrayList<Vehicle>();
 	
 	public void addVehicle(Vehicle vehicle) {
-		if (load.size() < MAX_SPACE) {	
-			if (totalWeight() < MAX_WEIGHT) {
-				load.add(vehicle);
-			}else{ System.out.println("too heavy"); }
-		}else{System.out.println("not enough space"); }
+		if (findSpot(vehicle)) {load.add(vehicle); }
+		else {System.out.println("error");};
 	}
 	
+	private boolean findSpot(Vehicle vehicle) {
+		if (load.size() < MAX_SPACE) {	
+			if (totalWeight() < MAX_WEIGHT) {
+				return true;
+			}else{ return false; }
+		}else{return false; }
+	}
+
+	
 	public void removeVehicle(Vehicle vehicle) {
-		load.remove(vehicle);
+		if (load.size() > 0 && load.contains(vehicle)) {
+			if (load.contains(vehicle)) {load.remove(vehicle); }
+		}
 	}
 	
 	public int totalWeight() {
@@ -28,4 +36,6 @@ public class Ship extends Vehicle {
 	public String getContents() {
 		return "Place prises: "+load.size()+" pour un poids de "+totalWeight();
 	}
+
+	
 }

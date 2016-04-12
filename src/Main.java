@@ -12,6 +12,10 @@ public class Main {
 		}
 			rainbowWarrior.removeVehicle(new Car());
 			System.err.println("salve 1: "+rainbowWarrior.getContents());
+	
+	
+			float nb = 0.2f;
+			nb = nb +0.3f;
+			System.out.println(nb);
 	}
-
 }
