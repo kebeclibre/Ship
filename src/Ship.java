@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Ship {
+public class Ship extends Vehicle {
 	private static int MAX_SPACE=100;
 	private static int MAX_WEIGHT=95000;
 	private ArrayList<Vehicle> load = new ArrayList<Vehicle>();
