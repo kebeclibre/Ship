@@ -7,23 +7,20 @@ public class Ship extends Vehicle {
 	
 	public void addVehicle(Vehicle vehicle) {
 		if (findSpot(vehicle)) {load.add(vehicle); }
-		else {System.out.println("error");};
+		else {System.err.println("error pas assez de place");};
 	}
 	
 	private boolean findSpot(Vehicle vehicle) {
-		if (load.size() < MAX_SPACE) {	
-			if (totalWeight() < MAX_WEIGHT) {
+		if (totalSpotsTaken()+vehicle.getSpace() <= MAX_SPACE) {	
+			if (totalWeight()+vehicle.getWeight() <= MAX_WEIGHT) {
 				return true;
 			}else{ return false; }
 		}else{return false; }
 	}
 
-	
-	public void removeVehicle(Vehicle vehicle) {
-		if (load.size() > 0 && load.contains(vehicle)) {
-			if (load.contains(vehicle)) {load.remove(vehicle); }
+	public void removeLastVehicle() {
+		load.remove(load.size()-1);
 		}
-	}
 	
 	public int totalWeight() {
 		int total=0;
@@ -33,8 +30,16 @@ public class Ship extends Vehicle {
 		return total;
 	}
 	
+	public int totalSpotsTaken() {
+		int total = 0;
+		for (Vehicle vehicle : load) {
+			total += vehicle.getSpace();
+		}
+		return total;
+	}
+	
 	public String getContents() {
-		return "Place prises: "+load.size()+" pour un poids de "+totalWeight();
+		return "Place prises: "+totalSpotsTaken()+" pour un poids de "+totalWeight();
 	}
 
 	

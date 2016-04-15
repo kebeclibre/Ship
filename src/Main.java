@@ -7,11 +7,11 @@ public class Main {
 		Ship rainbowWarrior = new Ship();
 		
 		for (int i=0; i < 80; i++) {
-			rainbowWarrior.addVehicle(new Car());
-			System.err.println("salve 1: "+rainbowWarrior.getContents());
+			rainbowWarrior.addVehicle(new Van());
+			System.out.println("salve 1: "+rainbowWarrior.getContents());
 		}
-			rainbowWarrior.removeVehicle(new Car());
-			System.err.println("salve 1: "+rainbowWarrior.getContents());
+			rainbowWarrior.addVehicle(new Van());
+			System.out.println("salve 1: "+rainbowWarrior.getContents());
 	
 	
 			float nb = 0.2f;
